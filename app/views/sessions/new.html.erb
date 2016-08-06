@@ -1,0 +1,6 @@
+<%= form_for(:session, url: login_path) do |f| %>
+    <%= f.text_field :name, :placeholder => "닉네임" %>
+    <%= f.password_field :password, :placeholder => "비밀번호" %>
+    <%= f.submit "로그인 하기", class: "btn waves-effect waves-light" %>
+    <%= link_to "가입하기", '/users/new', class: "btn waves-effect waves-light" %>
+<% end %>

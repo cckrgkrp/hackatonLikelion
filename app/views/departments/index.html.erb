@@ -1,0 +1,18 @@
+<div class="row">
+    <% @department.each do |e| %>
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <%= image_tag e.departImg, class: :departImg %>
+                </div>
+                <div class="card-content">
+                    <p><%= e.departName %></p>
+                </div>
+                <div class="card-action">
+                    <%= link_to "바로가기", department_path(e) %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+

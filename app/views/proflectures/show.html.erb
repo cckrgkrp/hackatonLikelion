@@ -1,0 +1,16 @@
+<p>asdfasdfasdfasdf</p>
+
+<%= @proflecture.ids %>
+<%= @proffessor.proffessorName %>
+<%= image_tag @proffessor.proffessorImg %>
+<%= @lecture.lectureName %>
+<% @posts.each do |p| %>
+    <%= p.title %>
+    <%= p.body %>
+<% end %>
+
+
+<%= form_tag('new', method: :get) do %>
+    <%= text_field_tag :proflectureId, @proflecture.ids, type: :hidden %>
+    <%= submit_tag "글쓰기" %>
+<% end %>

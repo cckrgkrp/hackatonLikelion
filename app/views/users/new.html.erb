@@ -1,0 +1,16 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Sign up</h1>
+
+    <%= form_for(@user) do |f| %>
+      <%= f.text_field :name, :placeholder => "닉네임" %>
+      <%= f.text_field :studentNumber, :placeholder => "학번" %>
+      <%= f.email_field :email, :placeholder => "이메일" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.submit "Create an account", class: "btn waves-effect waves-light" %>
+    <% end %>
+    </div>
+  </div>
+</div>

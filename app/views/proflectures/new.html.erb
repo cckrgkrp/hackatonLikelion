@@ -1,0 +1,18 @@
+
+<%= @proflecture.id %>
+<%= form_tag(action: :create) do %>
+    <div class="field" %>
+        <%= label :post, :title %>
+        <%= text_field :post, :title %>
+    </div>
+    <div class="field">
+        <%= label :post, :body %>
+        <%= text_field :post, :body %>
+    </div>
+    <div class="field">
+        <%= text_field :post, :proflecture_id, :value => @proflecture.id ,type: :hidden %>
+    </div>
+    <div class="actions">
+        <%= submit_tag "글쓰기" %>
+    </div>
+<% end %>

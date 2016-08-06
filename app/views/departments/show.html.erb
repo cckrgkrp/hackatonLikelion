@@ -1,0 +1,31 @@
+<h2><%= @department.departName %></h2>
+
+<div class="container" >
+    <% @proffessors.each do |p| %>
+
+        <div class="col s12 m7" >
+            <div class="card horizontal">
+                <div clss="card-image">
+                    <%= image_tag p.proffessorImg, class: :proffessorImg %>
+                </div>
+                <div class="card-stacked">
+                    <h4><%= p.proffessorName %></h4>
+                    <p><%= p.proffessorDesc %></p>
+                    <% unless p.lectures.empty? %>
+                        <% p.lectures.each do |n| %>
+                            <%= form_tag('/proflectures/show', method: :get) do %>
+                                <%= text_field_tag :departmentId, p.department_id, type: :hidden %>
+                                <%= text_field_tag :proffessorId, p.id, type: :hidden %>
+                                <%= text_field_tag :lectureId, n.id, type: :hidden %>
+                            <%= submit_tag n.lectureName %>
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        추가바람
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
