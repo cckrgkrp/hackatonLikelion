@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        제목: <%= @post.title %><br>
+        글쓴이 :<%= User.find_by_id(@post.user_id).name %><br>
+    </div>
+    <div class="row">    
+        <%= @post.body %>
+    </div>
+</div>

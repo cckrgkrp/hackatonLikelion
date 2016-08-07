@@ -4,7 +4,8 @@ class ProflecturesController < ApplicationController
         @proffessor = Proffessor.find_by_id(params[:proffessorId])
         @lecture = Lecture.find_by_id(params[:lectureId])
         @proflecture = Proflecture.where(department_id: @proffessor.department_id).where(proffessor_id: params[:proffessorId]).where(lecture_id: params[:lectureId])
-        @posts = Post.where(proflecture_id: @proflecture.ids)
+        @posts = Post.where(proflecture_id: @proflecture.ids).
+            order('created_at DESC').paginate(page: params[:page], per_page: 5)
     end
     def new
         @proflecture = Proflecture.find_by_id((params[:proflectureId]).to_i)
@@ -22,7 +23,7 @@ class ProflecturesController < ApplicationController
 
     private 
     def post_params
-        params.require(:post).permit(:title, :body, :proflecture_id)
+        params.require(:post).permit(:title, :body, :proflecture_id, :user_id)
     end
 
 
