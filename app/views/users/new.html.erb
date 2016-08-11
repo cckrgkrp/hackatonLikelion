@@ -1,16 +1,31 @@
-<div class="login">
-  <div class="container">
-    <div class="form">
+<main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">
+					<h1 class="content-heading">학과별 강의</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<section class="content-inner margin-top-no">
+      <div class="login">
+        <div class="container">
+          <div class="form">
 
-    <h1>Sign up</h1>
+          <h1>Sign up</h1>
 
-    <%= form_for(@user) do |f| %>
-      <%= f.text_field :name, :placeholder => "닉네임" %>
-      <%= f.text_field :studentNumber, :placeholder => "학번" %>
-      <%= f.email_field :email, :placeholder => "이메일" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.submit "Create an account", class: "btn waves-effect waves-light" %>
-    <% end %>
-    </div>
+          <%= form_for(@user) do |f| %>
+            <%= f.text_field :name, :placeholder => "닉네임" %>
+            <%= f.text_field :studentNumber, :placeholder => "학번" %>
+            <%= f.email_field :email, :placeholder => "이메일" %>
+            <%= f.password_field :password, :placeholder => "Password" %>
+            <%= f.submit "Create an account", class: "btn waves-effect waves-light" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
+</main>

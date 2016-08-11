@@ -1,37 +1,167 @@
-<div class="container"> 
-    <div class="img-container col s6">
-        <%= image_tag @proffessor.proffessorImg %>
+<main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">
+					<h1 class="content-heading"><%= @proffessor.proffessorName %> - <%= @lecture.lectureName %></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<section class="content-inner margin-top-no">
+            <br>
+            <br>
+            <br>
+            <h2 class="content-sub-heading"><%= @proffessor.proffessorName %> - <%= @lecture.lectureName %></h2>
+            <%= form_tag('new', method: :get) do %>
+                <%= text_field_tag :proflectureId, @proflecture.ids, type: :hidden %>
+                <%= submit_tag "글쓰기",{:style =>"float:right; font-color:white; font-family:bold",:class =>"btn btn-green"} %>
+            <% end %>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th data-field="lecture">&nbsp;&nbsp;&nbsp;강의&nbsp;&nbsp;&nbsp;</th>
+                        <th data-field="postTitle">&nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;&nbsp;</th>
+                        <th data-field="writer">&nbsp;&nbsp;&nbsp;글쓴이&nbsp;&nbsp;&nbsp;</th>
+                        <th data-field="time">&nbsp;&nbsp;&nbsp;작성일&nbsp;&nbsp;&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @posts.each do |p| %>
+                    <tr>
+                        <td width="20%"><%= @proffessor.proffessorName %>-<%= @lecture.lectureName %></td>
+                        <td width="40%"><%= link_to p.title, {:controller =>"posts", :action =>"show", :post => p.id} %></td>
+                        <td width="20%"><%= User.find_by_id(p.user_id).name %></td>
+                        <td width="20%"><%= p.created_at.strftime("%m 월 %d 일 %H 시") %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </section>
     </div>
-    <div class="container">
-        <h3><%= @proffessor.proffessorName %></h3>
-        <%= @lecture.lectureName %>
-    </div>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th data-field="writer">글쓴이</th>
-            <th data-field="postTitle">제목</th>
-            <th data-field="time">작성일</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @posts.each do |p| %>
-        <tr>
-            <td><%= User.find_by_id(p.user_id).name %></td>
-            <td><%= link_to p.title, {:controller =>"posts", :action =>"show", :post => p.id} %></td>
-            <td><%= p.created_at.strftime("%m %d %H %M") %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+</main>
+<!--
 
-<div class="digg_pagination">
-    <%= will_paginate @posts,
-        previous_label: '＜이전 페이지', next_label: '다음 페이지＞' %>
-</div>
+	<main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+						<h1 class="content-heading">Buttons</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>A button clearly communicates what action will occur when the user touches it. It consists of text, an image, or both, designed in accordance with your app’s colour theme.</p>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Flat Buttons</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat waves-attach">Ripple</a></p>
+<pre>
+&lt;a class="btn btn-flat"&gt; ... &lt;/a&gt;
 
-<%= form_tag('new', method: :get) do %>
-    <%= text_field_tag :proflectureId, @proflecture.ids, type: :hidden %>
-    <%= submit_tag "글쓰기" %>
-<% end %>
+&lt;a class="btn btn-flat waves-attach"&gt; ... &lt;/a&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn btn-flat btn-brand">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-brand waves-attach">Ripple</a></p>
+									<p class="margin-top-no"><a class="btn btn-flat btn-brand-accent">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-brand-accent waves-attach">Ripple</a></p>
+<pre>
+&lt;a class="btn btn-flat btn-brand"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-flat btn-brand waves-attach"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-flat btn-brand-accent"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-flat btn-brand-accent waves-attach"&gt; ... &lt;/a&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn btn-flat btn-green waves-attach">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-orange waves-attach">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-red waves-attach">.btn-red</a></p>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Raised Buttons</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn waves-attach">Ripple</a></p>
+<pre>
+&lt;a class="btn"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn waves-attach&gt; ... &lt;/a&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn btn-brand">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand waves-attach waves-light">Ripple</a></p>
+									<p class="margin-top-no"><a class="btn btn-brand-accent">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light">Ripple</a></p>
+<pre>
+&lt;a class="btn btn-brand"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-brand waves-attach waves-light"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-brand-accent"&gt; ... &lt;/a&gt;
+
+&lt;a class="btn btn-brand-accent waves-attach waves-light"&gt; ... &lt;/a&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p class="margin-top-no"><a class="btn btn-green waves-attach">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-orange waves-attach">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-red waves-attach waves-light">.btn-red</a></p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</main>
+	-->

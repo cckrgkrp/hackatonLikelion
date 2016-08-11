@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-    before_action :require_user, only: [:index, :show]
+    
     def index
         @department = Department.all
     end

@@ -2,7 +2,7 @@
 <html>
   <head>
   	<meta charset="UTF-8">
-    <title>Hongik Nerd</title>
+    <title>HIICE</title>
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <!-- Compiled and minified CSS -->
@@ -17,95 +17,38 @@
 	<nav class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu">
 		<div class="menu-scroll">
 			<div class="menu-content">
-				<a class="menu-logo" href="index.html">Material</a>
+				<a class="menu-logo" href="/">히스!</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_components">Components</a>
+						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_components">HIICE</a>
 						<ul class="menu-collapse collapse in" id="ui_menu_components">
 							<li>
-								<a class="waves-attach" href="ui-button.html">Buttons</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-button-fab.html">Buttons<small class="margin-left-xs">(Floating Action Button)</small></a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-card.html">Cards</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-data-table.html">Data Tables</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-dialog.html">Dialogs</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-dropdown-menu.html">Menus</a>
-							</li>
-							<li class="active">
-								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-picker.html">Pickers</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-progress.html">Progress</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-snackbar.html">Snackbars</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-stepper.html">Steppers</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-tab.html">Tabs</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-toolbar.html">Toolbars</a>
+								<a class="waves-attach" href="/about">about HIICE</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_extras">Extras</a>
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_extras">강의평가하기</a>
 						<ul class="menu-collapse collapse" id="ui_menu_extras">
 							<li>
-								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
+								<a class="waves-attach" href="ui-avatar.html">실시간 평가하기</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-icon.html">Icons</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-label.html">Labels</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-nav.html">Navs</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-tile.html">Tiles</a>
+								<a class="waves-attach" href="ui-icon.html">내가 들었던 강의들</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_javascript">Javascript</a>
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_javascript">강의탐색</a>
 						<ul class="menu-collapse collapse" id="ui_menu_javascript">
 							<li>
-								<a class="waves-attach" href="ui-affix.html">Affix</a>
+								<%= link_to '학과별', '/departments', {class: "waves-attach"} %>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-collapse.html">Collapse</a>
+								<a class="waves-attach" href="ui-collapse.html">평점순</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-dropdown-menu.html">Dropdown</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-modal.html">Modals</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="ui-tab.html">Togglable Tabs</a>
+								<a class="waves-attach" href="ui-dropdown-menu.html">나에게 알맞는 강의</a>
 							</li>
 						</ul>
 					</li>
@@ -124,7 +67,9 @@
 			</div>
 		</div>
 	</nav>
-  <header class="header header-transparent header-waterfall ui-header">
+
+
+	<header class="header header-transparent header-waterfall ui-header">
 		<ul class="nav nav-list pull-left hidden-md hidden-lg">
 			<li>
 				<a data-toggle="menu" href="#ui_menu">
@@ -133,33 +78,39 @@
 			</li>
 		</ul>
 		<a class="header-logo header-affix-hide margin-left-no margin-right-no hidden-md hidden-lg" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-logo header-affix hidden-md hidden-lg margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Nav Drawers</span>
-		<span class="header-logo header-affix visible-md-block visible-lg-block margin-right-no" data-offset-top="213" data-spy="affix">Nav Drawers</span>
+		<span class="header-logo header-affix hidden-md hidden-lg margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">&nbsp;HIICE!</span>
+		<span class="header-logo header-affix visible-md-block visible-lg-block margin-right-no" data-offset-top="213" data-spy="affix">&nbsp;HIICE!</span>
 		<ul class="nav nav-list pull-right">
 			<li>
+				<% if current_user %>
 				<a data-toggle="menu" href="#ui_menu_profile">
-					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
+					<span class="access-hide"><%= current_user.name %></span>
+					<span class="avatar avatar-sm"><!--<img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg">--></span>
 				</a>
+				<% else %>
+				<%= link_to "로그인",'/login' %>
+				<% end %>
 			</li>
 		</ul>
 	</header>
-  <nav aria-hidden="true" class="menu menu-right" id="ui_menu_profile" tabindex="-1">
+	<% if current_user %>
+  	<nav aria-hidden="true" class="menu menu-right" id="ui_menu_profile" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-top">
-				<div class="menu-top-img">
+				<!--<div class="menu-top-img">
 					<img alt="John Smith" src="../images/samples/landscape.jpg">
-				</div>
+				</div>-->
 				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar avatar-inline margin-right"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>John Smith</a>
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar avatar-inline margin-right"><!--<img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg">--></span>John Smith</a>
 				</div>
-				<div class="menu-top-info-sub">
+				<!--<div class="menu-top-info-sub">
 					<small>Some additional information about John Smith</small>
-				</div>
+				</div>-->
 			</div>
 			<div class="menu-content">
 				<ul class="nav">
 					<li>
+
 						<a class="waves-attach" href="javascript:void(0)">
 							Profile Settings
 							<span class="menu-collapse-toggle collapsed waves-attach" data-target="#ui_menu_profile_settings" data-toggle="collapse">
@@ -187,30 +138,17 @@
 						<a class="waves-attach" href="javascript:void(0)">Upload Photo</a>
 					</li>
 					<li>
-						<a class="waves-attach" href="page-login.html">Logout</a>
+						<%= link_to "로그아웃", logout_path, method: "delete", :class=>"wavees-attach" %>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-  <main class="content">
-		<div class="content-header ui-content-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
-						<h1 class="content-heading">Navigation Drawers</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
-					<%=yield %>
-				</div>
-			</div>
-		</div>
-	</main>
+	<% end %>
+
+
+	<%=yield %>
+
   <footer class="ui-footer">
 		<div class="container">
 			<p>Material</p>
@@ -226,14 +164,8 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+	<script>
 </body>
 </html>
-  <!--       <% if current_user %>
-              <li><%= current_user.name %></li>
-              <li><%= link_to "로그아웃", logout_path, method: "delete" %>
-            <% else %>
-              <li><%= link_to "로그인",'/login' %></li>
-            <% end %>-->

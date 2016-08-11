@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get '/home' => 'home#index'
+  get '/about' => 'home#about'
   get '/departments' => 'departments#index'
   get '/departments/:id' => 'departments#show', as: :department
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   resources :users
 
-
+  
   resources :proflectures
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,18 +1,40 @@
-<div class="row">
-    <% @department.each do |e| %>
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-image">
-                    <%= image_tag e.departImg, class: :departImg %>
-                </div>
-                <div class="card-content">
-                    <p><%= e.departName %></p>
-                </div>
-                <div class="card-action">
-                    <%= link_to "바로가기", department_path(e) %>
-                </div>
+<main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">
+					<h1 class="content-heading">학과별 강의</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<section class="content-inner margin-top-no">
+            <br>
+            <br>
+            <br>
+            <h2 class="content-sub-heading">Basic Cards</h2>
+            <div class="row">
+                <% @department.each do |e| %>
+                    <div class="col-md-4 col-sm-6" >
+                        <div class="card <%=cycle('card-brand','card-brand-accent','card-green','card-orange','card-red','')%>">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <p class="card-heading"><%= e.departName %></p>
+                                    <p>Lorem ipsum dolor sit amet.<br>Consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="card-action">
+                                    <div class="card-action-btn pull-left">
+											<a class="btn btn-flat waves-attach" href= "<%= department_path(e) %>"><span class="icon">check</span>&nbsp;바로가기</a>
+									</div>                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
             </div>
-        </div>
-    <% end %>
-</div>
+		</section>
+	</div>
+</main>
 
+	
