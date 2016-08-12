@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :name
       t.string :studentNumber
-      t.string :email
       t.string :password_digest
+      t.integer :grade
       
       t.timestamps
     end
