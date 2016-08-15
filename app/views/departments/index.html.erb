@@ -15,17 +15,22 @@
             <br>
             <h2 class="content-sub-heading">Basic Cards</h2>
             <div class="row">
-                <% @department.each do |e| %>
+                <% @department.each do |department| %>
                     <div class="col-md-4 col-sm-6" >
                         <div class="card <%=cycle('card-brand','card-brand-accent','card-green','card-orange','card-red','')%>">
                             <div class="card-main">
                                 <div class="card-inner">
-                                    <p class="card-heading"><%= e.departName %></p>
-                                    <p>Lorem ipsum dolor sit amet.<br>Consectetur adipiscing elit.</p>
+                                    <p class="card-heading"><%= department.departName %></p>
+                                    <p><%= department.departDesc %></p>
+                                    <% if current_user && current_user.admin? %> 
+                                        <p class="recipe-edit"> 
+                                            <%= link_to "[수정]", edit_department_path(department) %> 
+                                        </p> 
+                                    <% end %>
                                 </div>
                                 <div class="card-action">
                                     <div class="card-action-btn pull-left">
-											<a class="btn btn-flat waves-attach" href= "<%= department_path(e) %>"><span class="icon">check</span>&nbsp;바로가기</a>
+											<a class="btn btn-flat waves-attach" href= "<%= department_path(department) %>"><span class="icon">check</span>&nbsp;바로가기</a>
 									</div>                        
                                 </div>
                             </div>

@@ -3,7 +3,7 @@ class CreateDepartments < ActiveRecord::Migration[5.0]
     create_table :departments do |t|
 
       t.string :departName
-      t.string :departImg
+      t.string :departDesc
       t.timestamps
     end
   end

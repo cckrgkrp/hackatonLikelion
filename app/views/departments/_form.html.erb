@@ -1,0 +1,32 @@
+   <main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2">
+					<h1 class="content-heading">학과 수정하기</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="container" >
+        <section class="content-inner margin-top-no">
+            <br>
+            <br>
+            <br>
+            <h2 class="content-sub-heading"><%= @department.departName %></h2>
+            <h2 class="content-sub-heading"><%= @department.departDesc %></h2>                 
+            <%= form_for(@department) do |f| %>
+              <div class="field">
+                <%= f.label :departmentName %><br>
+                <%= f.text_field :departName %>
+              </div>
+              <div class="field">
+                <%= f.label :departmentDesc %><br>
+                <%= f.text_field :departDesc %>
+              <div class="actions">
+                <%= f.submit "update"%>
+              </div>
+            <% end %>
+      </section>
+    </div>
+</main>

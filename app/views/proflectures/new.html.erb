@@ -1,10 +1,9 @@
-
 <main class="content">
 	<div class="content-header ui-content-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">
-					<h1 class="content-heading"><%= Proffessor.find_by_id(@proflecture.proffessor_id).proffessorName %> - <%= Lecture.find_by_id(@proflecture.lecture_id).lectureName %> 강의 평가하기</h1>
+					<h1 class="content-heading"><%= @proffessor.proffessorName %> 교수님 강의 생성하기</h1>
 				</div>
 			</div>
 		</div>
@@ -14,21 +13,16 @@
             <br>
             <br>
             <br>
-            <h2 class="content-sub-heading"><%= Proffessor.find_by_id(@proflecture.proffessor_id).proffessorName %> - <%= Lecture.find_by_id(@proflecture.lecture_id).lectureName %> 강의 평가하기</h2>
+            <h2 class="content-sub-heading"><%= @proffessor.proffessorName %> 교수님 강의 생성하기</h2>
             <div class="card">
                 <div class="card-main">
                     <div class="card-inner">
                         <%= form_tag(action: :create) do %>
                             <div class="form-group form-group-label">
-                                <%= label :post, :title,{:class =>"floating-label", :for=>"ui_floating_label_example_textarea_autosize"}%>
-                                <%= text_field :post, :title,{:class=>"form-control textarea-autosize",:id=>"ui_floating_label_example_textarea_autosize"} %>
+                                <%= collection_select(:proflecture, :lecture_id, Lecture.all, :id, :lectureName, prompt: true) %>    
                             </div>
-                            <div class="form-group form-group-label">    
-                                <%= label :post, :body,{:class =>"floating-label", :for=>"ui_floating_label_example_textarea_normal"} %>
-                                <textarea class="form-control" id="ui_floating_label_example_textarea_normal" rows="10" type="text" name="post[body]"></textarea>
-                            </div>
-                                <%= text_field :post, :proflecture_id, :value => @proflecture.id ,type: :hidden %>
-                                <%= text_field :post, :user_id, :value => current_user.id, type: :hidden %>
+                                <%= text_field :proflecture, :proffessor_id, :value => @proffessor.id, type: :hidden %> 
+                                <%= text_field :proflecture, :department_id, :value => @department.id ,type: :hidden %>
                             <div class="actions">
                                 <%= submit_tag "글쓰기" %>
                             </div>

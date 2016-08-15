@@ -1,0 +1,38 @@
+<main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">
+					<h1 class="content-heading"><%= @proffessor.proffessorName %> 교수님 수정하기</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<section class="content-inner margin-top-no">
+            <br>
+            <br>
+            <br>
+            <h2 class="content-sub-heading"><%= @proffessor.proffessorName %> 교수님 수정하기</h2>
+            <div class="card">
+                <div class="card-main">
+                    <div class="card-inner">
+                        <%= form_for(@proffessor) do |p| %>
+                            <div class="form-group form-group-label">
+                                <%= p.label :proffessorName,{:class =>"floating-label", :for=>"ui_floating_label_example_textarea_autosize"}%>
+                                <%= p.text_field :proffessorName,{:class=>"form-control textarea-autosize",:id=>"ui_floating_label_example_textarea_autosize", :value => @proffessor.proffessorName} %>
+                            </div>
+                            <div class="form-group form-group-label">    
+                                <%= p.label :proffessorDesc,{:class =>"floating-label", :for=>"ui_floating_label_example_textarea_normal"} %>
+                                <textarea class="form-control" id="ui_floating_label_example_textarea_normal" rows="5" type="text"><%= @proffessor.proffessorDesc %></textarea>
+                            </div>
+                            <div class="actions">
+                                <%= p.submit "글쓰기" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

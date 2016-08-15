@@ -1,31 +1,33 @@
 class ProflecturesController < ApplicationController
-    before_action :require_user, only: [ :new, :create]
+    before_action :require_admin, only: [:new, :create, :edit, :update]
     def show
-        @department = Department.find_by_id(params[:departmentId])
-        @proffessor = Proffessor.find_by_id(params[:proffessorId])
-        @lecture = Lecture.find_by_id(params[:lectureId])
-        @proflecture = Proflecture.where(department_id: @proffessor.department_id).where(proffessor_id: params[:proffessorId]).where(lecture_id: params[:lectureId])
+        @department = Department.find(params[:departmentId])
+        @proffessor = Proffessor.find(params[:proffessorId])
+        @lecture = Lecture.find(params[:lectureId])
+        @proflecture = Proflecture.where(department_id: params[:departmentId]).where(proffessor_id: params[:proffessorId]).where(lecture_id: params[:lectureId])
         @posts = Post.where(proflecture_id: @proflecture.ids).
             order('created_at DESC')
     end
     def new
-        @proflecture = Proflecture.find_by_id((params[:proflectureId]).to_i)
-        @post = Post.new
+        @department = Department.find(params[:departmentId])
+        @proffessor = Proffessor.find(params[:proffessorId])
+        @proflecture = Proflecture.new
     end
     def create
-        @post = Post.new(post_params)
-        
-        if @post.save
-            redirect_to '/posts/show?post=' + @post.id.to_s
+        @proflecture = Proflecture.new(proflecture_params)
+
+        if @proflecture.save
+            redirect_to '/departments/' + params[:department_id].to_s
         else
-            redirect_to '/}'
+            render action: 'new'
         end
     end
-
-    private 
-    def post_params
-        params.require(:post).permit(:title, :body, :proflecture_id, :user_id)
+    
+    private
+    def proflecture_params
+        params.require(:proflecture).permit(:department_id, :proffessor_id, :lecture_id)
     end
 
+   
 
 end

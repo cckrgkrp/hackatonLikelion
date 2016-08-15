@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20160806050316) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "departName"
-    t.string   "departImg"
+    t.string   "departDesc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20160806050316) do
 
   create_table "proffessors", force: :cascade do |t|
     t.string   "proffessorName"
-    t.string   "proffessorImg"
     t.string   "proffessorDesc"
     t.integer  "department_id"
     t.datetime "created_at",     null: false
@@ -58,6 +57,8 @@ ActiveRecord::Schema.define(version: 20160806050316) do
     t.string   "studentNumber"
     t.string   "password_digest"
     t.integer  "grade"
+    t.string   "role"
+    t.text     "rtproflecture"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
