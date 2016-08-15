@@ -56,11 +56,13 @@
                                     <% else %>
                                         등록된 강의 없음
                                     <% end %>
-                                    <%= form_tag('/proflectures/new', method: :get) do %>
-										<%= text_field_tag :departmentId, p.department_id, type: :hidden %>
-										<%= text_field_tag :proffessorId, p.id, type: :hidden %>
-										<%= submit_tag "[추 가]", :class =>"btn btn-flat" %>
-									<% end %>
+                                    <% if current_user && current_user.admin? %> 
+                                        <%= form_tag('/proflectures/new', method: :get) do %>
+                                            <%= text_field_tag :departmentId, p.department_id, type: :hidden %>
+                                            <%= text_field_tag :proffessorId, p.id, type: :hidden %>
+                                            <%= submit_tag "[추 가]", :class =>"btn btn-flat" %>
+                                        <% end %>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
@@ -68,9 +70,11 @@
                 </div>
             <% end %>
         </section>
-        <%= form_tag('/proffessors/new', method: :get) do %>
-            <%= text_field_tag :departmentId, @department.id, type: :hidden %>
-            <%= submit_tag "교수생성",{:style =>"float:right; font-color:white; font-family:bold",:class =>"btn btn-green"} %>
+        <% if current_user && current_user.admin? %> 
+            <%= form_tag('/proffessors/new', method: :get) do %>
+                <%= text_field_tag :departmentId, @department.id, type: :hidden %>
+                <%= submit_tag "교수생성",{:style =>"float:right; font-color:white; font-family:bold",:class =>"btn btn-green"} %>
+            <% end %>
         <% end %>
         <br>
     </div>
