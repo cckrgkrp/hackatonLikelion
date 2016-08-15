@@ -1,4 +1,5 @@
 class ProffessorsController < ApplicationController
+    before_action :require_admin, only: [:new, :create, :edit, :update]
 
     def new
         @proffessor = Proffessor.new
@@ -8,7 +9,7 @@ class ProffessorsController < ApplicationController
     def create
         @proffessor = Proffessor.new(proffessor_params)
         if @proffessor.save
-            redirect_to '/department/' + params[:department_id].to_s
+            redirect_to '/departments/' + @proffessor.department_id.to_s
         else
             redirect_to '/proffessors/new'
         end
@@ -21,7 +22,7 @@ class ProffessorsController < ApplicationController
     def update
         @proffessor = Proffessor.find(params[:id])
         if @proffessor.update(proffessor_params)
-            redirect_to '/departments/'  + params[:department_id].to_s
+            redirect_to '/departments/'  + @proffessor.department_id.to_s
         else
             redirect_to '/proffessors/edit'
         end
@@ -29,6 +30,6 @@ class ProffessorsController < ApplicationController
 
     private
     def proffessor_params
-        params.require(:proffessor).permit(:proffessorName, :proffessorDecs, :department_id)
+        params.require(:proffessor).permit(:proffessorName, :proffessorDesc, :department_id)
     end
 end

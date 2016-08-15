@@ -41,11 +41,13 @@
                 </tbody>
             </table>
 			<div>
+            <% if current_user %> 
 				<%= form_for(current_user, url: '/ratingproflecture') do |n| %>
 					<input type="hidden" value = "<%= @proflecture.ids %>" name="proflectureid">
 					<input type="number" name ="rtproflecture" value= "입력해주세요">
 					<input type="submit">
 				<% end %>
+            <% end %>
 			</div>
         </section>
     </div>
